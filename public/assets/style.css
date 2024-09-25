@@ -1,0 +1,149 @@
+body {
+    background-color:#f8f9fa;
+    font-family: Arial, sans-serif; /* Adjust the font to match your screenshot */
+}
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+.sidebar a:hover {
+    color: #407dbf;
+}
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.bg-custom {
+    background-color: #2d4a84;
+    box-shadow: 2px 6px 10px -6px rgba(57,57,58,0.98);
+}
+
+.sidebar i {
+    margin-right: 10px;
+}
+.collapse-link {
+    cursor: pointer;
+}
+
+.report-container {
+    background: white;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+}
+.header-section, .body-section, .footer-section {
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+.header-section h1 {
+    font-size: 24px;
+    color: #407dbf;
+}
+.header-section p, .body-section p, .footer-section p {
+    font-size: 16px;
+    color: #333;
+}
+.header-section p.sub-text {
+    font-style: italic;
+    font-size: 14px;
+}
+@media print {
+    body {
+        font-family: 'Times New Roman', serif;
+    }
+    h2, h3 {
+        border-bottom: 2px solid black;
+    }
+    p {
+        margin-bottom: 10px;
+    }
+    .modal-footer, .modal-header, .dropdown {
+        display: none;
+    }
+
+    
+}
+.textColor{
+    color:#407dbf;
+}
+
+.download-link {
+    display: block; /* Makes the link appear on a new line */
+    margin-top: 10px; /* Adds space above the link */
+    color: blue; /* Styles the link color */
+    text-decoration: underline; /* Underlines the link */
+}
+ .image-container {
+        width: 400px; /* Set the desired width for the box */
+        height: 300px; /* Set the desired height for the box */
+        overflow: hidden; /* Ensure content stays within the box */
+        margin: 0 auto; /* Center the box */
+    } 
+
+    .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Makes the image cover the box while maintaining aspect ratio */
+    }
+    .form-icon {
+        background-color: #f8f9fa; /* Light gray background to match the input field */
+        border: none; /* Removes the border */
+        border-radius: 0.25rem 0 0 0.25rem; /* Rounded corners on the left side only */
+    }
+    .input-group-text {
+        border-right: 0; /* Removes the right border to blend with the input field */
+    }
+    .input-group .form-control {
+        border-left: 0; /* Removes the left border to blend with the icon */
+    }
+    .btn-custom {
+        border-radius: 20px; /* Rounded button */
+        padding-left: 20px; /* Padding for text alignment */
+        padding-right: 20px; /* Padding for text alignment */
+    }
+    .card-custom {
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        background-color: #fff; /* White background for the card */
+        border: none; /* No borders */
+    }
+    .header-area {
+        background-color:#2d4a84;/* Teal background */
+        color: #ffffff; /* White text color */
+        padding: 10px 15px; /* Padding for the header */
+        border-radius: 10px 10px 0 0; /* Rounded corners on top */
+    }
+    .dashboard-icon {
+        color: #ffffff; /* White color for the icon */
+        margin-right: 10px; /* Space between icon and text */
+    }
+    .footer {
+        padding: 10px 2px; /* Padding for the footer */
+        background-color: #ffffff;
+        color: #111 ;/* White text for the footer */
+        text-align: center; /* Centering the text in the footer */
+        border-radius: 0 0 10px 10px; /* Rounded corners on the bottom */
+    }
