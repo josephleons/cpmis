@@ -3,16 +3,16 @@
 <div class="container my-5" style="padding-top:8%">
     @include('includes.message')
     <div class="row mx-auto" style="width: 60%;">
-        <div class="col-2">
+        <div class="col-md-2 col-sm-4">
             <img src="{{ url('assets/images/chalinze.jpeg') }}" alt="Logo" class="img-fluid" style="max-width: 100px;">
             <!-- Logo -->
         </div>
-        <div class="col-10">
+        <div class="col-md-10">
             <p class="display-2 fs-6 text-center" style="font-family:Verdana, Geneva, Tahoma, sans-serif">
                 United Republic of Tanzania<br>
                 <b>President's Office Public Service Management and Good Governance</b>
                 <br>
-            <h1 class="display-3 fs-4 text-capitalize text-center " style="color:#2d4a84"><b>Chalinze Project
+            <h1 class="display-3 fs-4 text-capitalize text-center " style="color:#2d4a84"><b>Chalinze DC Project
                     Monitoring Information System</b></h1>
             </p>
         </div>
@@ -29,7 +29,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="border-0">
-                                            <img src="{{ url('assets/images/chalinze002.jpg') }}" alt="Logo"
+                                            <img src="{{ url('assets/images/DED2.jpg') }}" alt="Logo"
                                                 class="img-fluid border-0 img-fluid"
                                                 style="width: 100%; height: 50%;object-fit:cover; border-radius:5px">
                                         </div>
@@ -41,7 +41,41 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="border-0">
-                                            <img src="{{ url('assets/images/chalinze001.jpg') }}" alt="Logo"
+                                            <img src="{{ url('assets/images/DED4.jpg') }}" alt="Logo"
+                                                class="img-fluid border-0 img-fluid"
+                                                style="width: 100%; height: 50%;object-fit:cover; border-radius:5px">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="border-0">
+                                            <img src="{{ url('assets/images/DED5.jpeg') }}" alt="Logo"
+                                                class="img-fluid border-0 img-fluid"
+                                                style="width: 100%; height: 50%;object-fit:cover; border-radius:5px">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="border-0">
+                                            <img src="{{ url('assets/images/HQ.jpg') }}" alt="Logo"
+                                                class="img-fluid border-0 img-fluid"
+                                                style="width: 100%; height: 50%;object-fit:cover; border-radius:5px">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="border-0">
+                                            <img src="{{ url('assets/images/MWINYIKONDO.jpg') }}" alt="Logo"
                                                 class="img-fluid border-0 img-fluid"
                                                 style="width: 100%; height: 50%;object-fit:cover; border-radius:5px">
                                         </div>
@@ -62,7 +96,8 @@
                         </button>
                     </div>
                 </div>
-                <div class="col-md-6 pt-5 pl-3">
+               <div class="col-1"></div>
+                <div class="col-md-5 pt-5 pl-3">
                     <hr class="py-3">
                     <form action="{{ route('login') }}" method="POST">
                         @csrf
@@ -98,10 +133,10 @@
         </div>
         <div class="card-footer text-muted text-center">
             <p style="font-size:14px">For any technical inquiry, please contact ICT Support at: <span>
-                    support@utumishi.go.tz or call 026 216 0240
+                    ict@chalinzedc.go.tz or call 026 216 0240
                 </span>
             </p>
-            <p style="font-size:14px">Copyright &copy; 2024, PO-PSMGG. <b>All rights reserved.</b></p>
+            <p style="font-size:14px">Copyright &copy; 2024, chalinzedc. <b>All rights reserved.</b></p>
         </div>
     </div>
 </div>

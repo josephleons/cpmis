@@ -30,12 +30,13 @@ Route::get('/project/report', [ProjectController::class, 'report'])->name('proje
 
 
 
+
 // Admin Resource
 Route::resource('admin',AdminController::class);
 
 //Facility Resource
 Route::resource('facility',FacilityController::class);
-
+Route::get('/comment', [FacilityController::class, 'comment'])->name('facility.comment');
 
 //HOD resource
 Route::resource('hod',HodController::class);

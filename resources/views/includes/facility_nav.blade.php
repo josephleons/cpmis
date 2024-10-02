@@ -33,7 +33,7 @@
     <div class="collapse" id="projectSubmenu">
         <a href="{{ url('project') }}" class="ms-4"><i class="fas fa-list"></i> Project List</a>
         <a href="{{ url('project/create') }}" class="ms-4"><i class="fas fa-plus-circle"></i> Add Project</a>
-        {{-- <a href="{{url('reports')}}" class="ms-4"><i class="fas fa-chart-pie"></i> Project Reports</a> --}}
+        <a href="{{url('facility/comment')}}" class="ms-4"><i class="fas fa-chart-pie"></i> View current Comments</a>
     </div>
 
     <a href="#"><i class="fas fa-money-check-alt"></i> Project Allocations</a>

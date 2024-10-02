@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
+use App\Models\User;
+use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -13,8 +17,11 @@ class CommentController extends Controller
     public function index()
     {
     
-     
-        return view('comments.index');
+   
+       $comments = Comment::with('project','user')->get();
+       $user =User::all();
+       $project =Project::all();
+       return view('comments.index', compact('comments','user','project'));
     }
 
     /**
@@ -30,7 +37,26 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'body' => 'required|string',
+            'comment_date' => 'required|date',
+            'project_id' => 'required|integer|exists:projects,id',
+            'comment_to' => 'required|string',
+            'user_id' => 'required|integer|exists:users,id',
+        ]);
+        
+        // Create New Comment Instance 
+        $comment = new Comment();
+        $comment->body = $request->input('body');
+        $comment->comment_date = $request->input('comment_date');
+        $comment->project_id = $request->input('project_id');
+        $comment->user_id = $request->input('user_id');
+        $comment->comment_to = $request->input('comment_to');
+
+          // Save the comment to the database
+          $comment->save();
+
+          return redirect()->back()->with('success', 'Comment added successfully!');
     }
 
     /**

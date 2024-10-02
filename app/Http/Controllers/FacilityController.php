@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FacilityController extends Controller
 {
@@ -66,5 +68,11 @@ class FacilityController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function comment(){
+        // $user = Auth::user();
+        // $comment = Comment::where('email',$user)->get();
+        return view ('facility.comments');
     }
 }

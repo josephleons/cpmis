@@ -4,6 +4,7 @@ use App\Models\User;
 use App\Models\Project;
 use App\Models\Department;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 class ProjectController extends Controller
 {
     /**
@@ -11,7 +12,12 @@ class ProjectController extends Controller
      */
      public function index()
      {
-        $projects = Project::with(['department', 'user'])->get();
+        // $userId = auth()->user()->id;
+        $userId = Auth::id();
+        $projects = Project::with(['department', 'user'])
+                ->where('user_id',$userId)
+                ->get();
+
         $departments = Department::all();  // Fetch all departments
         $users = User::all();  // Fetch all users
         return view('project.index', compact('projects', 'departments', 'users'));
@@ -43,7 +49,7 @@ class ProjectController extends Controller
             'user_id' => 'required|exists:users,id',
         ]);
 
-        $project = new Project();
+            $project = new Project();
             $project->name = $request->name;
             $project->startdate = $request->startdate;
             $project->enddate = $request->enddate;

@@ -2,6 +2,7 @@
 @section('content')
 <div class="container">
     <h4 class="display-6 fs-4">Projects Overview</h4>
+    @include('includes.message');
     <table id="projectsTable" class="table table-striped" style="width:100%">
         <thead>
             <tr>
@@ -57,9 +58,9 @@
                             <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
                                     data-bs-target="#viewModal{{ $project->id }}">
                                     <i class="bi bi-eye-fill"></i> View</a></li>
-                            {{-- <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
                                     data-bs-target="#updateModal{{ $project->id }}">
-                                    <i class="bi bi-pencil-square"></i> Update</a></li> --}}
+                                    <i class="bi bi-pencil-square"></i> Add Comment</a></li>
                         </ul>
                     </div>
                 </td>
@@ -123,45 +124,30 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="updateModalLabel{{ $project->id }}">Update Project: {{
-                                $project->name }}</h5>
+                            <h5 class="modal-title" id="updateModalLabel{{ $project->id }}">Add Comment to: <br>{{ $project->name }}</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="{{ route('project.update', $project->id) }}" method="POST">
+                            <form action="{{ route('comments.store') }}" method="POST">
                                 @csrf
                                 <div class="mb-3">
-                                    <label for="name" class="form-label">Project Name</label>
-                                    <input type="text" class="form-control" name="name" value="{{ $project->name }}"
-                                        required>
+                                    <label for="body" class="form-label text-primary">Comment</label>
+                                    <textarea class="form-control" name="body" rows="4" required></textarea>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="startdate" class="form-label">Start Date</label>
-                                    <input type="date" class="form-control" name="startdate"
-                                        value="{{ $project->startdate->format('Y-m-d') }}" required>
+                                    <label for="comment_date" class="form-label">Comment Date</label>
+                                    <input type="date" class="form-control text-success" name="comment_date" value="{{ now()->format('Y-m-d') }}" required>
                                 </div>
+                                <input type="hidden" name="project_id" value="{{ $project->id }}">
+                                <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                                 <div class="mb-3">
-                                    <label for="enddate" class="form-label">End Date</label>
-                                    <input type="date" class="form-control" name="enddate"
-                                        value="{{ $project->enddate ? $project->enddate->format('Y-m-d') : '' }}">
+                                    <label for="users">Leave a Comment To</label>
+                                    <i class="bi bi-person mx-4 text-warning"></i>
+                                    <input type="text"  class="bg-custom border-0 form-control" name="comment_to" value="{{ $project->user->username }}">
                                 </div>
-                                <div class="mb-3">
-                                    <label for="fundallocation" class="form-label">Fund Allocation</label>
-                                    <input type="number" class="form-control" name="fundallocation"
-                                        value="{{ $project->fundallocation }}" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="department_id" class="form-label">Department</label>
-                                    <input type="number" class="form-control" name="department_id"
-                                        value="{{ $project->department_id }}" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="user_id" class="form-label">Coordinator</label>
-                                    <input type="number" class="form-control" name="user_id"
-                                        value="{{ $project->user_id }}" required>
-                                </div>
-                                <button type="submit" style="background-color: #407dbf;"
-                                    class="btn btn-primary bg-custom">Update Project</button>
+                               
+                                
+                                <button type="submit" style="background-color: #407dbf;" class="btn btn-primary bg-custom">Submit Comment</button>
                             </form>
                         </div>
                     </div>

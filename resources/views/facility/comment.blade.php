@@ -1,4 +1,4 @@
-@extends('layouts.hod')
+@extends('layouts.facility')
 @section('content')
 <div class="container">
     <h4 class="display-6 fs-4">Comment List</h4>
@@ -14,15 +14,14 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($comments as $comment)
+            @foreach($comment as $com)
             <tr>
-              
-                <td>{{ $comment->id }}</td>
-                <td>{{ $comment->body }}</td> 
-                <td>{{ $comment->comment_date}}</td>
-                <td>{{ $comment->project->name }}</td>
-                <td>{{ $comment->comment_to }}</td>
-                <td>{{ $comment->user->username }}</td>
+                <td>{{ $com->id }}</td>
+                <td>{{ $com->body }}</td> 
+                <td>{{ $com->comment_date}}</td>
+                <td>{{ $com->project->name }}</td>
+                <td>{{ $com->comment_to }}</td>
+                <td>{{ $com->user->username }}</td>
             </tr>
             @endforeach
         </tbody>
