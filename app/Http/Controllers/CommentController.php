@@ -19,9 +19,9 @@ class CommentController extends Controller
     
    
        $comments = Comment::with('project','user')->get();
-       $user =User::all();
+       $users = User::all();
        $project =Project::all();
-       return view('comments.index', compact('comments','user','project'));
+       return view('comments.index', compact('comments','users','project'));
     }
 
     /**
@@ -41,7 +41,7 @@ class CommentController extends Controller
             'body' => 'required|string',
             'comment_date' => 'required|date',
             'project_id' => 'required|integer|exists:projects,id',
-            'comment_to' => 'required|string',
+            'comment_by' => 'required|string',
             'user_id' => 'required|integer|exists:users,id',
         ]);
         
@@ -50,9 +50,8 @@ class CommentController extends Controller
         $comment->body = $request->input('body');
         $comment->comment_date = $request->input('comment_date');
         $comment->project_id = $request->input('project_id');
-        $comment->user_id = $request->input('user_id');
-        $comment->comment_to = $request->input('comment_to');
-
+        $comment->user_id = $request->user_id;
+        $comment->comment_by = $request->input('comment_by');
           // Save the comment to the database
           $comment->save();
 

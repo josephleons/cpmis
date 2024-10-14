@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Project;
 use Illuminate\Http\Request;
 
@@ -13,8 +14,9 @@ class ReportController extends Controller
     public function index()
     {
        
+        $users = User::all();
         $projects = Project::with(['department', 'user'])->get();
-        return view('reports.index', compact('projects'));
+        return view('reports.index', compact('projects','users'));
     }
 
     /**

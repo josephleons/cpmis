@@ -71,8 +71,8 @@ class FacilityController extends Controller
     }
 
     public function comment(){
-        // $user = Auth::user();
-        // $comment = Comment::where('email',$user)->get();
-        return view ('facility.comments');
+        $user = Auth::id();
+        $comment = Comment::where('user_id',$user)->get();
+        return view ('facility.comment',compact('comment',));
     }
 }

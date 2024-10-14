@@ -10,6 +10,7 @@
                 <th>Start Date</th>
                 <th>End Date</th>
                 <th>Fund Allocation</th>
+                <th>Project Stage</th>
                 <th>Picture</th>
                 <th>Attachment</th>
                 <th>Department</th>
@@ -24,6 +25,7 @@
                 <td>{{ $project->startdate->format('Y-m-d') }}</td>
                 <td>{{ $project->enddate ? $project->enddate->format('Y-m-d') : 'N/A' }}</td>
                 <td>{{ $project->fundallocation }}</td>
+                <td>{{ $project->p_stages }}</td>
                 <td>
                     @if($project->projectpicture)
                     <a href="{{ asset('storage/projects/' . $project->projectpicture) }}"
@@ -48,7 +50,7 @@
                 <td>{{ $project->department->name }}</td>
                 <td>{{ $project->user->username }}</td>
                 <td>
-                    <!-- Dropdown with only icon -->
+                <!-- Dropdown with only icon -->
                     <div class="dropdown">
                         <a href="#" class="text-primary" id="dropdownMenuIcon{{ $project->id }}"
                             data-bs-toggle="dropdown" aria-expanded="false">
@@ -60,7 +62,7 @@
                                     <i class="bi bi-eye-fill"></i> View</a></li>
                             <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
                                     data-bs-target="#updateModal{{ $project->id }}">
-                                    <i class="bi bi-pencil-square"></i> Add Comment</a></li>
+                            <i class="bi bi-pencil-square"></i> Add Comment</a></li>
                         </ul>
                     </div>
                 </td>
@@ -113,7 +115,7 @@
                         <div class="modal-footer">
                             <button type="button" class="btn bg-custom" data-bs-dismiss="modal">Close</button>
                             <button type="button" style=" background-color: #407dbf;" class="text-white  btn bg-custom"
-                                onclick="printModalContent('viewModal{{ $project->id }}')">Print</button>
+                            onclick="printModalContent('viewModal{{ $project->id }}')">Print</button>
                         </div>
                     </div>
                 </div>
@@ -141,12 +143,21 @@
                                 <input type="hidden" name="project_id" value="{{ $project->id }}">
                                 <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                                 <div class="mb-3">
-                                    <label for="users">Leave a Comment To</label>
+                                    <label for="users">Comment By:</label>
                                     <i class="bi bi-person mx-4 text-warning"></i>
-                                    <input type="text"  class="bg-custom border-0 form-control" name="comment_to" value="{{ $project->user->username }}">
+                                    <input type="text"  class="bg-custom border-0 form-control" name="comment_by" value="{{ $project->user->username }}">
                                 </div>
-                               
-                                
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="user_id" class="form-label">Leave Comment To</label>
+                                        <select class="form-select" id="user_id" name="user_id" required>
+                                            <option value="">Select a user</option>
+                                            @foreach ($users as $user)
+                                            <option value="{{ $user->id }}">{{ $user->username }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
                                 <button type="submit" style="background-color: #407dbf;" class="btn btn-primary bg-custom">Submit Comment</button>
                             </form>
                         </div>

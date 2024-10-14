@@ -17,6 +17,7 @@ return new class extends Migration
             $table->timestamp('comment_date')->nullable();
             $table->foreignId('project_id')->constrained('projects')->onDelete('cascade');  // Associate with the Project model
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');  // Associate with the User model
+            $table->string('comment_by')->nullable();
             $table->timestamps();
         });
     }

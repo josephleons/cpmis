@@ -50,6 +50,12 @@
                         <textarea class="form-control" id="progressreport" name="progressreport"></textarea>
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="p_stages" class="form-label">Project Stages</label>
+                        <input type="text" class="form-control" id="p_stages" name="p_stages">
+                    </div>
+                </div>
                 <div class="col-6">
                     <div class="mb-3">
                         <label for="projectreport" class="form-label">Add Attachment</label>

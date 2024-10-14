@@ -9,6 +9,7 @@
                 <th>Start Date</th>
                 <th>End Date</th>
                 <th>Fund Allocation</th>
+                <th>Stage</th>
                 <th>Picture</th>
                 <th>Attachment</th>
                 <th>Department</th>
@@ -23,6 +24,7 @@
                 <td>{{ $project->startdate->format('Y-m-d') }}</td>
                 <td>{{ $project->enddate ? $project->enddate->format('Y-m-d') : 'N/A' }}</td>
                 <td>{{ $project->fundallocation }}</td>
+                <td>{{ $project->p_stages }}</td>
                 <td>
                     @if($project->projectpicture)
                         <a href="{{ asset('storage/projects/' . $project->projectpicture) }}" download="{{ $project->projectpicture }}_Image.jpg">
@@ -86,6 +88,7 @@
                                             <p><strong>End Date:</strong> {{ $project->enddate ? $project->enddate->format('Y-m-d') : 'N/A' }} </p>
                                             <p><strong>Published by:</strong> Project Manager Name (Company)</p>
                                             <p><strong>Fund(s):</strong> {{ $project->fundallocation }}</p>
+                                            <p><strong>Project(s) Stage:</strong> {{ $project->p_stages }}</p>
                                             <br>
                                             <p><strong>Contributions:</strong> {{ $project->department->name }} Department</p>
                                             <p><strong>Fullname:</strong> {{ $project->user->username }}</p>
@@ -136,6 +139,10 @@
                               <label for="fundallocation" class="form-label">Fund Allocation</label>
                               <input type="number" class="form-control" name="fundallocation" value="{{ $project->fundallocation }}" required>
                           </div>
+                          <div class="mb-3">
+                            <label for="projectstages" class="form-label">Project stages</label>
+                            <input type="text" class="form-control" name="p_stages" value="{{ $project->p_stages }}" required>
+                        </div>
                           <div class="mb-3">
                               <label for="department_id" class="form-label">Department</label>
                               <input type="number" class="form-control" name="department_id" value="{{ $project->department_id }}" required>

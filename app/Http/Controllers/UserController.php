@@ -38,18 +38,22 @@ class UserController extends Controller
     {
          // Validate the form inputs
          $request->validate([
+            'fullname' => 'required|string|max:255',
+            'gender' => 'required|string|max:255',
+            'phone' => 'required|string|max:255',
             'username' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'phone' => 'required|string|max:255',
             'password' => 'required|string|min:8|confirmed',
             'department_id' => 'required|exists:departments,id'
         ]);
 
           // Create new user
           $user = User::create([
+            'fullname' => $request->fullname,
+            'gender' => $request->gender,
+            'phone' =>$request->phone,
             'username' => $request->username,
             'email' => $request->email,
-            'phone' =>$request->phone,
             'password' => bcrypt($request->password),
             'department_id' => $request->department_id, 
             'role_id' => $request->role_id 

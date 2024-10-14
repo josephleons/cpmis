@@ -6,7 +6,7 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Body</th>
+                <th>Descriptions</th>
                 <th>Comment Date</th>
                 <th>Project Description</th>
                 <th>Commented To</th>
@@ -20,8 +20,8 @@
                 <td>{{ $com->body }}</td> 
                 <td>{{ $com->comment_date}}</td>
                 <td>{{ $com->project->name }}</td>
-                <td>{{ $com->comment_to }}</td>
                 <td>{{ $com->user->username }}</td>
+                <td>{{ $com->comment_by }}</td>
             </tr>
             @endforeach
         </tbody>

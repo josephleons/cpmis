@@ -16,33 +16,41 @@ class UserSeeder extends Seeder
     {
         
         User::create([
+            'fullname' => 'Emmanuel E.Mtumishi',
+            'gender'=>'Male',
+            'phone' => '+255766571522',
             'username' => 'admin@gmail.com',
             'email' => 'admin@example.com',
-            'phone' => '123456789',
             'password' => Hash::make('password'), // Always hash passwords
             'role_id' => 1, // Assuming 1 is the role ID for 'admin'
             'department_id' => 1,
         ]);
         User::create([
+            'fullname' => 'Jamse P.Kimario',
+            'gender'=>'Male',
+            'phone' => '+255766571522',
             'username' => 'facility@gmail.com',
             'email' => 'facility@example.com',
-            'phone' => '123456789',
             'password' => Hash::make('password'), // Always hash passwords
             'role_id' => 2, // Assuming 1 is the role ID for 'admin'
             'department_id' => 3,
         ]);
         User::create([
+            'fullname' => 'Mtiko M.Kuriho',
+            'gender'=>'Male',
+            'phone' => '+255766571522',
             'username' => 'hod@gmail.com',
             'email' => 'hod@example.com',
-            'phone' => '123456789',
             'password' => Hash::make('password'), // Always hash passwords
-            'role_id' => 2, // Assuming 1 is the role ID for 'admin'
+            'role_id' => 3, // Assuming 1 is the role ID for 'admin'
             'department_id' => 1,
         ]);
         User::create([
+            'fullname' => 'Severine Lekovid Mrasa',
+            'gender'=>'Male',
+            'phone' => '+255766571522',
             'username' => 'coordinator@gmail.com',
             'email' => 'coordinator@example.com',
-            'phone' => '123456789',
             'password' => Hash::make('password'), // Always hash passwords
             'role_id' => 4, // Assuming 1 is the role ID for 'admin'
             'department_id' => 1,

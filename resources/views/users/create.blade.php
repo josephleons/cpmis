@@ -10,7 +10,22 @@
                 <div class="card-body">
                     <form action="{{ route('users.store') }}" method="POST">
                         @csrf
-
+                        <div class="form-group mb-3">
+                            <label for="fullname" class="form-label">Fullname</label>
+                            <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Enter Fullname" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="gender_id" class="form-label">Gender</label>
+                            <select class="form-select" id="gender_id" name="gender" required>
+                                <option value="" disabled selected>Select Gende</option>
+                                <option value="male" >Male</option>
+                                <option value="male" >Female</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter Phone Number" required>
+                        </div>
                         <div class="form-group mb-3">
                             <label for="username" class="form-label">Username</label>
                             <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username" required>
@@ -20,12 +35,6 @@
                             <label for="email" class="form-label">Email</label>
                             <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" required>
                         </div>
-
-                        <div class="form-group mb-3">
-                            <label for="phone" class="form-label">Phone</label>
-                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter Phone Number" required>
-                        </div>
-
                         <div class="form-group mb-3">
                             <label for="password" class="form-label">Password</label>
                             <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" required>

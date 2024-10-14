@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('projectpicture')->nullable();  // Path to the project picture (nullable)
             $table->string('projectreport')->nullable();  // Path to the project picture (nullable)
             $table->text('progressreport')->nullable();  // Progress report for the project (nullable)
+            $table->text('p_stages')->nullable();  // Progress report for the project (nullable)
             $table->foreignId('department_id')->constrained('departments')->onDelete('cascade');  // Associate with Department
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');  // Associate with User
             $table->timestamps();

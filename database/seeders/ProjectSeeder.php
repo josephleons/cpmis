@@ -21,6 +21,7 @@ class ProjectSeeder extends Seeder
             'projectpicture' => 'project_a.jpg',
             'projectreport' => 'project_b.pdf',
             'progressreport' => 'Initial report on Project A',
+            'p_stages' => 'Initial Stage',
             'department_id' => 1,  // Assuming department ID 1
             'user_id' => 1,  // Assuming user ID 1
         ]);

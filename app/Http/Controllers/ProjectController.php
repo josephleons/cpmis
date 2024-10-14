@@ -12,7 +12,6 @@ class ProjectController extends Controller
      */
      public function index()
      {
-        // $userId = auth()->user()->id;
         $userId = Auth::id();
         $projects = Project::with(['department', 'user'])
                 ->where('user_id',$userId)
@@ -44,6 +43,7 @@ class ProjectController extends Controller
             'startdate' => 'required|date',
             'enddate' => 'nullable|date|after_or_equal:startdate',
             'fundallocation' => 'required|numeric',
+            'p_stages'=>'required|string|max:100',
             'projectpicture' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'department_id' => 'required|exists:departments,id',
             'user_id' => 'required|exists:users,id',
@@ -55,6 +55,7 @@ class ProjectController extends Controller
             $project->enddate = $request->enddate;
             $project->fundallocation = $request->fundallocation;
             $project->progressreport = $request->progressreport;
+            $project->p_stages = $request->p_stages;
             $project->department_id = $request->department_id;
             $project->user_id = $request->user_id;
 

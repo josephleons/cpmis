@@ -18,6 +18,7 @@ class CommentSeeder extends Seeder
             'comment_date' => now(),  // Current timestamp
             'project_id' => 1,  // Assuming Project A has ID 1
             'user_id' => 1,  // Assuming User 1 is the author
+            'comment_by' => 'comment@gmail.com',  // Assuming User 1 is the author
 
         ]);
     }
